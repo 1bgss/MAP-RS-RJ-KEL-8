@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/queueListFragment">
+
+    <fragment
+        android:id="@+id/queueListFragment"
+        android:name="com.example.antrianrumahsakit.ui.QueueListFragment"
+        android:label="Daftar Antrian"
+        tools:layout="@layout/fragment_queue_list">
+
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/queueDetailFragment" />
+
+        <action
+            android:id="@+id/action_list_to_add"
+            app:destination="@id/addQueueFragment" />
+
+        <!-- action ke PoliFragment -->
+        <action
+            android:id="@+id/action_list_to_poli"
+            app:destination="@id/poliFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addQueueFragment"
+        android:name="com.example.antrianrumahsakit.ui.AddQueueFragment"
+        android:label="Tambah Antrian"
+        tools:layout="@layout/fragment_add_queue">
+
+        <action
+            android:id="@+id/action_add_to_detail"
+            app:destination="@id/queueDetailFragment"
+            app:popUpTo="@id/queueListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/queueDetailFragment"
+        android:name="com.example.antrianrumahsakit.ui.QueueDetailFragment"
+        android:label="Detail Antrian"
+        tools:layout="@layout/fragment_queue_detail">
+
+        <argument
+            android:name="ticketId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/poliFragment"
+        android:name="com.example.antrianrumahsakit.ui.PoliFragment"
+        android:label="Poli Kesehatan"
+        tools:layout="@layout/fragment_poli" />
+</navigation>

@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView android:id="@+id/tvDetailId" android:textSize="22sp" android:textStyle="bold" android:layout_width="wrap_content"  android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tvDetailName" android:textSize="18sp" android:layout_marginTop="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tvDetailComplaint" android:layout_marginTop="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/tvDetailPoli" android:layout_marginTop="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tvDetailDokter" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/btnCallComplete" android:layout_marginTop="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:backgroundTint="@color/umn_blue"  android:text="Selesaikan (Panggil)"/>
+    <Button android:id="@+id/btnBack" android:layout_marginTop="8dp" android:layout_width="match_parent" android:backgroundTint="@color/umn_blue" android:layout_height="wrap_content" android:text="Kembali"/>
+</LinearLayout>
