@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/white">
+    <!-- Halaman Pilih dashboard -->
+    <TextView
+        android:id="@+id/tvSelectRole"
+        android:text="Pilih Dashboard"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/umn_blue"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnPatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard Pasien"
+        android:backgroundTint="@color/umn_blue"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard Dokter"
+        android:backgroundTint="@color/umn_blue"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard Admin"
+        android:backgroundTint="@color/umn_blue"
+        android:textColor="@color/white" />
+
+</LinearLayout>

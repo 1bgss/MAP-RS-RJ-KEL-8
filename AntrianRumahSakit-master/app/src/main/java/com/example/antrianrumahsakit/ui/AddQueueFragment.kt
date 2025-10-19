@@ -1,30 +1,35 @@
 package com.example.antrianrumahsakit.ui
 
-import android.app.DatePickerDialog
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.antrianrumahsakit.R
 import com.example.antrianrumahsakit.databinding.FragmentAddQueueBinding
-import com.example.antrianrumahsakit.viewmodel.QueueViewModel
-import java.util.*
+import com.example.antrianrumahsakit.model.QueueTicket
+import com.example.antrianrumahsakit.model.TicketStatus
+import com.example.antrianrumahsakit.viewmodel.SharedQueueViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class AddQueueFragment : Fragment() {
-    private val vm: QueueViewModel by activityViewModels()
+
     private var _binding: FragmentAddQueueBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: SharedQueueViewModel by activityViewModels()
 
-    private val poliList = listOf("Poli Umum", "Poli Anak", "Poli Gigi")
-    private var selectedDate: Long? = null
+    private val CAMERA_REQUEST_CODE = 101
+    private var photoBitmap: Bitmap? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddQueueBinding.inflate(inflater, container, false)
@@ -32,62 +37,57 @@ class AddQueueFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // Dropdown daftar poli
+        val poliList = listOf("Poli Umum", "Poli Gigi", "Poli Anak", "Poli Mata", "Poli THT")
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_item_dropdown, poliList)
+        binding.dropdownPoli.setAdapter(adapter)
 
-        // Setup dropdown Poli
-        val poliAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, poliList)
-        binding.dropdownPoli.setAdapter(poliAdapter)
-
-        // Update dokter saat poli dipilih
-        binding.dropdownPoli.setOnItemClickListener { _, _, position, _ ->
-            val selectedPoli = poliList[position]
-            val dokterList = vm.getDoctorsByPoli(selectedPoli).map { it.name }
-            val dokterAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, dokterList)
-            binding.dropdownDokter.setAdapter(dokterAdapter)
-            binding.dropdownDokter.text = null
+        // Tombol ambil foto
+        binding.btnTakePhoto.setOnClickListener {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, CAMERA_REQUEST_CODE)
         }
 
-        // Pilih tanggal
-        binding.btnSelectDate.setOnClickListener {
-            val c = Calendar.getInstance()
-            val dialog = DatePickerDialog(
-                requireContext(),
-                { _, y, m, d ->
-                    val cal = Calendar.getInstance()
-                    cal.set(y, m, d, 0, 0, 0)
-                    selectedDate = cal.timeInMillis
-                    binding.tvSelectedDate.text = "${d}/${m + 1}/$y"
-                },
-                c.get(Calendar.YEAR),
-                c.get(Calendar.MONTH),
-                c.get(Calendar.DAY_OF_MONTH)
-            )
-            dialog.show()
-        }
-
-        // Tombol tambah
-        binding.btnAdd.setOnClickListener {
-            val name = binding.etName.text.toString().trim()
-            val complaint = binding.etComplaint.text.toString().trim()
-            val medicalId = binding.etMedicalId.text.toString().trim().ifEmpty { null }
+        // Tombol submit
+        binding.btnSubmit.setOnClickListener {
+            val name = binding.inputPatientName.text.toString().trim()
             val poli = binding.dropdownPoli.text.toString().trim()
-            val dokter = binding.dropdownDokter.text.toString().trim()
+            val doctor = binding.inputDoctor.text.toString().trim()
 
-            if (name.isEmpty() || complaint.isEmpty() || poli.isEmpty() || dokter.isEmpty() || selectedDate == null) {
-                Toast.makeText(requireContext(), "Lengkapi semua data", Toast.LENGTH_SHORT).show()
+            if (name.isEmpty() || poli.isEmpty() || doctor.isEmpty()) {
+                Snackbar.make(binding.root, "⚠️ Isi semua field terlebih dahulu", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val patient = vm.addPatient(name, medicalId)
-            val ticket = vm.addTicket(patient, poli, dokter, selectedDate!!)
+            val nextId = (viewModel.queueTickets.value?.size ?: 0) + 1
 
-            if (ticket == null) {
-                Toast.makeText(requireContext(), "Jadwal tidak valid atau kapasitas penuh", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            // Buat tiket baru sesuai model QueueTicket
+            val newTicket = QueueTicket(
+                id = nextId,
+                patientName = name,
+                poliName = poli,
+                doctorName = doctor,
+                status = TicketStatus.WAIT,
+                isRegular = true
+            )
+
+            viewModel.addQueue(newTicket)
+
+            Snackbar.make(binding.root, "✅ Antrian baru berhasil ditambahkan", Snackbar.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.queueListFragment)
+        }
+    }
+
+    // Menangani hasil kamera
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as? Bitmap
+            imageBitmap?.let {
+                binding.imgPreview.visibility = View.VISIBLE
+                binding.imgPreview.setImageBitmap(it)
+                photoBitmap = it
             }
-
-            val action = AddQueueFragmentDirections.actionAddToDetail(ticket.ticketId)
-            findNavController().navigate(action)
         }
     }
 

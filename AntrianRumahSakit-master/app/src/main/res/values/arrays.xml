@@ -1,0 +1,10 @@
+<resources>
+    <string-array name="poli_list">
+        <item>Semua Poli</item>
+        <item>Poli Umum</item>
+        <item>Poli Gigi</item>
+        <item>Poli Anak</item>
+        <item>Poli Mata</item>
+        <item>Poli THT</item>
+    </string-array>
+</resources>

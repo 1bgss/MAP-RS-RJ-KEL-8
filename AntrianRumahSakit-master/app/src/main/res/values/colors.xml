@@ -6,5 +6,12 @@
     <color name="purple_200">#BB86FC</color>
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
+    <color name="bottom_nav_item_color">#FF444444</color>
     <color name="umn_blue">#1E88E5</color>
+    <color name="yellow">#FFF176</color>
+    <color name="green">#81C784</color>
+    <color name="gray">#BDBDBD</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="dark_gray">#555555</color>
+    <color name="red">#FF5252</color>
 </resources>

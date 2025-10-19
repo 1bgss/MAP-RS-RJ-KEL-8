@@ -1,27 +1,27 @@
 package com.example.antrianrumahsakit.manager
 
-import com.example.antrianrumahsakit.model.*
-import java.time.LocalDate
-import java.time.ZoneId
+import com.example.antrianrumahsakit.model.QueueTicket
+import com.example.antrianrumahsakit.model.TicketStatus
 
 object QueueManager {
 
-    fun validateSchedule(doctor: Doctor, appointmentDate: Long): Boolean {
-        val day = LocalDate.ofEpochDay(appointmentDate / 86400000)
-            .dayOfWeek
-        return doctor.schedule.contains(day)
+    private val avgTimeRegular = 15  // menit
+    private val avgTimeNewPatient = 25 // menit
+
+    fun calculateEstimatedWaitTime(queueList: List<QueueTicket>, targetTicket: QueueTicket): Int {
+        val position = queueList.indexOfFirst { it.id == targetTicket.id }
+        if (position == -1) return 0
+
+        // Hitung estimasi berdasarkan urutan dan status pasien
+        var totalTime = 0
+        for (i in 0 until position) {
+            val q = queueList[i]
+            totalTime += if (q.isRegular) avgTimeRegular else avgTimeNewPatient
+        }
+        return totalTime
     }
 
-    fun computeEstimatedMinutes(
-        doctor: Doctor,
-        patient: Patient,
-        ticketsBefore: Int
-    ): Int {
-        val base = if (patient.isRegular) doctor.avgTimeRegular else doctor.avgTimeNewPatient
-        return base * (ticketsBefore + 1)
-    }
-
-    fun isCapacityFull(doctor: Doctor, ticketsToday: Int): Boolean {
-        return ticketsToday >= doctor.capacityPerDay
+    fun getActiveQueues(list: List<QueueTicket>): List<QueueTicket> {
+        return list.filter { it.status == TicketStatus.WAIT || it.status == TicketStatus.ON_CHECK }
     }
 }

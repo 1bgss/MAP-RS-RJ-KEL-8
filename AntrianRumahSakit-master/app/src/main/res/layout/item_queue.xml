@@ -1,104 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card:cardCornerRadius="12dp"
-    android:layout_margin="8dp">
-
+    app:cardElevation="4dp"
+    app:cardCornerRadius="16dp"
+    app:strokeColor="@color/umn_blue"
+    app:strokeWidth="1dp">
+    <!-- Tampilan antrian pasien -->
     <RelativeLayout
-        android:padding="12dp"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvTicketId"
-            android:layout_width="48dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/statusIndicator"
+            android:layout_width="12dp"
             android:layout_height="48dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:background="@drawable/circle_bg"
-            android:textColor="@android:color/white"/>
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="8dp"/>
 
         <LinearLayout
-            android:layout_toEndOf="@id/tvTicketId"
-            android:layout_marginStart="12dp"
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_toEndOf="@id/statusIndicator"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/txtQueueNumber"
+                android:text="Q001"
                 android:textStyle="bold"
+                android:textColor="@color/umn_blue"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Tambahan baru untuk kode rekam medis -->
             <TextView
-                android:id="@+id/tvMedicalId"
+                android:id="@+id/txtPatientName"
+                android:text="Nama Pasien"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp"/>
-
-            <!-- 🔹 Tambahan baru untuk kategori pasien -->
-            <TextView
-                android:id="@+id/tvCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:padding="4dp"
-                android:text="Category"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:background="@drawable/category_bg"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tvComplaint"
+                android:id="@+id/txtPoli"
+                android:text="Poli Umum"
+                android:textSize="14sp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:ellipsize="end"/>
+                android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TextView
+                android:id="@+id/txtStatus"
+                android:text="Menunggu"
+                android:textSize="12sp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:id="@+id/tvPoli"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="italic"/>
-
-                <TextView
-                    android:id="@+id/tvDokter"
-                    android:layout_marginStart="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="italic"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvEta"
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-- min"
-            android:textStyle="bold"
-            android:padding="6dp"/>
-
-        <TextView
-            android:id="@+id/tvStatus"
-            android:layout_below="@id/tvEta"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="6dp"
-            android:text="WAIT"/>
     </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

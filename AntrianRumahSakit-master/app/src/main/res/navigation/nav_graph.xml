@@ -5,32 +5,29 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/queueListFragment">
 
+    <!-- Home / Daftar Antrian -->
     <fragment
         android:id="@+id/queueListFragment"
         android:name="com.example.antrianrumahsakit.ui.QueueListFragment"
         android:label="Daftar Antrian"
         tools:layout="@layout/fragment_queue_list">
-
         <action
             android:id="@+id/action_list_to_detail"
             app:destination="@id/queueDetailFragment" />
-
         <action
             android:id="@+id/action_list_to_add"
             app:destination="@id/addQueueFragment" />
-
-        <!-- action ke PoliFragment -->
         <action
             android:id="@+id/action_list_to_poli"
             app:destination="@id/poliFragment" />
     </fragment>
 
+    <!-- Tambah Antrian -->
     <fragment
         android:id="@+id/addQueueFragment"
         android:name="com.example.antrianrumahsakit.ui.AddQueueFragment"
         android:label="Tambah Antrian"
         tools:layout="@layout/fragment_add_queue">
-
         <action
             android:id="@+id/action_add_to_detail"
             app:destination="@id/queueDetailFragment"
@@ -38,12 +35,12 @@
             app:popUpToInclusive="false" />
     </fragment>
 
+    <!-- Detail Antrian -->
     <fragment
         android:id="@+id/queueDetailFragment"
         android:name="com.example.antrianrumahsakit.ui.QueueDetailFragment"
         android:label="Detail Antrian"
         tools:layout="@layout/fragment_queue_detail">
-
         <argument
             android:name="ticketId"
             app:argType="integer" />
@@ -61,4 +58,33 @@
         android:label="History"
         tools:layout="@layout/fragment_history" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.antrianrumahsakit.ui.ProfileFragment"
+        android:label="Profil Pengguna"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/masterDataFragment"
+        android:name="com.example.antrianrumahsakit.ui.MasterDataFragment"
+        android:label="Master Data"
+        tools:layout="@layout/fragment_master_data" />
+
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.example.antrianrumahsakit.ui.ReportsFragment"
+        android:label="Laporan"
+        tools:layout="@layout/fragment_reports" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.antrianrumahsakit.ui.SettingsFragment"
+        android:label="Pengaturan"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/mlFragment"
+        android:name="com.example.antrianrumahsakit.ui.MLFragment"
+        android:label="Analisis ML"
+        tools:layout="@layout/fragment_ml" />
 </navigation>

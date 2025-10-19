@@ -1,13 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- Tema utama aplikasi -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <style name="Theme.AntrianRumahSakit" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Atur warna utama aplikasi -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/umn_blue</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/umn_blue</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Material3</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
-
-
+    <!-- ✅ ganti parent-nya ke Material3 -->
+    <style name="Widget.AntrianRumahSakit.Button.FilledTonal" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/umn_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
 </resources>

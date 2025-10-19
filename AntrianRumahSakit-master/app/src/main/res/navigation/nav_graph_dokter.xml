@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dokter"
+    app:startDestination="@id/doctorQueueFragment">
+
+    <!-- Antrian -->
+    <fragment
+        android:id="@+id/doctorQueueFragment"
+        android:name="com.example.antrianrumahsakit.ui.dokter.DoctorQueueFragment"
+        android:label="Antrian Hari Ini"
+        tools:layout="@layout/fragment_doctor_queue">
+        <action
+            android:id="@+id/action_doctorQueueFragment_to_doctorDetailFragment"
+            app:destination="@id/doctorDetailFragment" />
+    </fragment>
+
+    <!-- Detail dokter -->
+    <fragment
+        android:id="@+id/doctorDetailFragment"
+        android:name="com.example.antrianrumahsakit.ui.dokter.DoctorDetailFragment"
+        android:label="Detail Pemeriksaan"
+        tools:layout="@layout/fragment_doctor_detail" />
+
+    <!-- Riwayat pemeriksaan -->
+    <fragment
+        android:id="@+id/doctorHistoryFragment"
+        android:name="com.example.antrianrumahsakit.ui.dokter.DoctorHistoryFragment"
+        android:label="Riwayat Pemeriksaan"
+        tools:layout="@layout/fragment_doctor_history" />
+</navigation>

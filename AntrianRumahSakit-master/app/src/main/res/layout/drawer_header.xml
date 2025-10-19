@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/umn_blue"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Foto Profil / Avatar -->
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_profile_placeholder"
+        android:background="@drawable/circle_white_background"
+        android:padding="6dp"
+        android:contentDescription="Foto Profil"
+        android:scaleType="centerCrop"
+        android:elevation="4dp" />
+
+    <!-- Nama Pengguna -->
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pengguna"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_marginTop="10dp" />
+
+    <!-- Role Pengguna -->
+    <TextView
+        android:id="@+id/tvUserRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pasien"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:alpha="0.8" />
+</LinearLayout>

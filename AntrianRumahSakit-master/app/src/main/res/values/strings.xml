@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Antrian Rumah Sakit</string>
+    <string name="add_queue">Tambah Antrian</string>
 </resources>

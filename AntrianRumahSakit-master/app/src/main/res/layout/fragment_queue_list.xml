@@ -1,73 +1,46 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Search dan Filter -->
+    <EditText
+        android:id="@+id/inputSearch"
+        android:hint="Cari nama pasien..."
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:padding="12dp"
+        android:background="@drawable/search_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" />
 
-        <!-- Header Info -->
-        <TextView
-            android:id="@+id/tvNowServing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Now Serving: -"
-            android:textSize="16sp"
-            android:padding="12dp"
-            android:textStyle="bold"
-            android:background="@color/teal_700"
-            android:textColor="@android:color/white"/>
-
-        <TextView
-            android:id="@+id/tvETA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Est. Wait: -"
-            android:padding="8dp"
-            android:background="@color/teal_900"
-            android:textColor="@android:color/white"/>
-
-        <!-- RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:clipToPadding="false"/>
-
-        <TextView
-            android:id="@+id/emptyView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Belum ada antrian"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="400dp"/>
-    </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinnerFilterPoli"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="Tambah Antrian"
-        app:srcCompat="@drawable/ic_add"
-        app:backgroundTint="@color/umn_blue"
-        android:layout_gravity="bottom|end"/>
+        android:layout_marginTop="8dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabPoli"
-        android:layout_width="wrap_content"
+    <!-- RecyclerView daftar antrian -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerQueue"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+    <!-- Tombol tambah antrian -->
+    <Button
+        android:id="@+id/btnAddQueue"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:layout_margin="16dp"
-        android:contentDescription="Lihat Poli"
-        app:backgroundTint="@color/umn_blue"
-        app:srcCompat="@drawable/ic_person" />
+        android:text="Tambah Antrian"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/umn_blue"
+        android:textColor="@android:color/white" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

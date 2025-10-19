@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:padding="12dp"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Riwayat Pasien" android:textStyle="bold" android:textSize="18sp"/>
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Halaman riwayat antrian selesai -->
+    <TextView
+        android:text="Riwayat Antrian Selesai"
+        android:textStyle="bold"
+        android:textColor="@color/umn_blue"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler_history"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/emptyView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Belum ada riwayat"
-        android:visibility="gone"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

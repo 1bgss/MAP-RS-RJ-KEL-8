@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_reset"
+            android:title="Reset Semua Data"
+            android:icon="@drawable/ic_refresh" />
+    </group>
+
+    <item
+        android:id="@+id/drawer_logout"
+        android:title="Keluar"
+        android:icon="@drawable/ic_logout" />
+</menu>

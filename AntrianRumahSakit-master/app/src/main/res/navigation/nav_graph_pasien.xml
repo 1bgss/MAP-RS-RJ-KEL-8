@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_pasien"
+    app:startDestination="@id/queueListFragment">
+
+    <!-- Daftar Antrian -->
+    <fragment
+        android:id="@+id/queueListFragment"
+        android:name="com.example.antrianrumahsakit.ui.QueueListFragment"
+        android:label="Daftar Antrian"
+        tools:layout="@layout/fragment_queue_list">
+
+        <!-- Arahkan dari daftar ke detail -->
+        <action
+            android:id="@+id/action_queueListFragment_to_queueDetailFragment"
+            app:destination="@id/queueDetailFragment" />
+
+        <!-- Arahkan ke form tambah antrian -->
+        <action
+            android:id="@+id/action_queueListFragment_to_addQueueFragment"
+            app:destination="@id/addQueueFragment" />
+    </fragment>
+
+    <!-- Tambah Antrian -->
+    <fragment
+        android:id="@+id/addQueueFragment"
+        android:name="com.example.antrianrumahsakit.ui.AddQueueFragment"
+        android:label="Tambah Antrian"
+        tools:layout="@layout/fragment_add_queue" />
+
+    <!-- Detail Antrian -->
+    <fragment
+        android:id="@+id/queueDetailFragment"
+        android:name="com.example.antrianrumahsakit.ui.QueueDetailFragment"
+        android:label="Detail Antrian"
+        tools:layout="@layout/fragment_queue_detail" />
+
+    <!-- Poli -->
+    <fragment
+        android:id="@+id/poliFragment"
+        android:name="com.example.antrianrumahsakit.ui.PoliFragment"
+        android:label="Poli Kesehatan"
+        tools:layout="@layout/fragment_poli">
+        <argument
+            android:name="pageName"
+            app:argType="string"
+            android:defaultValue="Poli Kesehatan" />
+    </fragment>
+
+    <!-- Riwayat -->
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.antrianrumahsakit.ui.HistoryFragment"
+        android:label="Riwayat"
+        tools:layout="@layout/fragment_history">
+        <argument
+            android:name="pageName"
+            app:argType="string"
+            android:defaultValue="Riwayat Pasien" />
+    </fragment>
+
+    <!-- Profil -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.antrianrumahsakit.ui.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="pageName"
+            app:argType="string"
+            android:defaultValue="Profil Pasien" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsHealthFragment"
+        android:name="com.example.antrianrumahsakit.ui.pasien.NewsHealthFragment"
+        android:label="News Health"
+        tools:layout="@layout/fragment_news_health" />
+
+</navigation>

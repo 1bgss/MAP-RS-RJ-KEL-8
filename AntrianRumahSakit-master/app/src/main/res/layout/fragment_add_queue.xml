@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,46 +14,23 @@
         <!-- Nama Pasien -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="Nama Pasien"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
-                android:hint="Nama pasien"
+                android:id="@+id/inputPatientName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Kode Rekam Medis (opsional) -->
+        <!-- Poli -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMedicalId"
-                android:hint="Kode Rekam Medis (opsional)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Keluhan -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etComplaint"
-                android:hint="Keluhan singkat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Dropdown Poli -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutPoli"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:hint="Poli"
             android:layout_marginTop="12dp"
-            android:hint="Pilih Poli">
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
             <AutoCompleteTextView
                 android:id="@+id/dropdownPoli"
@@ -59,42 +38,49 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Dropdown Dokter -->
+        <!-- Dokter -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutDokter"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Dokter"
             android:layout_marginTop="12dp"
-            android:hint="Pilih Dokter">
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
-            <AutoCompleteTextView
-                android:id="@+id/dropdownDokter"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDoctor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Pilih Tanggal -->
+        <!-- Tombol tambah -->
         <Button
-            android:id="@+id/btnSelectDate"
-            android:layout_marginTop="16dp"
+            android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih Tanggal"/>
-        <TextView
-            android:id="@+id/tvSelectedDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Belum memilih tanggal"/>
+            android:text="Tambah Antrian"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/umn_blue"
+            android:textColor="@color/white" />
 
-        <!-- Tombol Tambah -->
+        <!-- Tombol ambil foto -->
         <Button
-            android:id="@+id/btnAdd"
-            android:layout_marginTop="16dp"
+            android:id="@+id/btnTakePhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/umn_blue"
-            android:text="Tambahkan Antrian"/>
+            android:text="Ambil Foto Pasien"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/umn_blue"
+            android:textColor="@color/white" />
+
+        <!-- Preview foto -->
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:contentDescription="Preview foto pasien" />
+
     </LinearLayout>
 </ScrollView>

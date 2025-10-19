@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/doctorQueueFragment"
+        android:icon="@drawable/ic_queue"
+        android:title="Pasien Hari Ini" />
+
+    <item
+        android:id="@+id/doctorHistoryFragment"
+        android:icon="@drawable/ic_history"
+        android:title="Riwayat" />
+
+
+</menu>

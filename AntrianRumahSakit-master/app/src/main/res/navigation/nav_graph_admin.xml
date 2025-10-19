@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_admin"
+    app:startDestination="@id/adminHomeFragment">
+
+    <!-- Tampilan utama-->
+    <fragment
+        android:id="@+id/adminHomeFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.AdminHomeFragment"
+        android:label="Dashboard Admin"
+        tools:layout="@layout/fragment_admin_home" />
+
+    <!-- Kelola dokter -->
+    <fragment
+        android:id="@+id/adminDoctorFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.ManageDoctorFragment"
+        android:label="Kelola Dokter"
+        tools:layout="@layout/fragment_manage_doctor" />
+
+    <!-- Kelola Poli -->
+    <fragment
+        android:id="@+id/adminPoliFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.ManagePoliFragment"
+        android:label="Kelola Poli"
+        tools:layout="@layout/fragment_manage_poli" />
+
+    <!-- Kelola pasien -->
+    <fragment
+        android:id="@+id/adminPatientFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.ManagePatientFragment"
+        android:label="Kelola Pasien"
+        tools:layout="@layout/fragment_manage_patient" />
+
+    <!-- Halaman Report -->
+    <fragment
+        android:id="@+id/adminReportsFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.ReportsFragment"
+        android:label="Laporan"
+        tools:layout="@layout/fragment_reports" />
+
+    <!-- Settings -->
+    <fragment
+        android:id="@+id/adminSettingsFragment"
+        android:name="com.example.antrianrumahsakit.ui.admin.SettingsFragment"
+        android:label="Pengaturan"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

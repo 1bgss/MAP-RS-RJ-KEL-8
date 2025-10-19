@@ -1,12 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- Tema gelap aplikasi -->
     <style name="Theme.AntrianRumahSakit" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/umn_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/umn_blue</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
-
-    <!-- Tema untuk SplashScreen di mode malam -->
-
-
 </resources>

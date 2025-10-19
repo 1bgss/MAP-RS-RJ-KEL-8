@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    //Bagian ini masih dalam tahap pengembangan untuk projek akhir
+    <TextView
+        android:text="Prediksi Risiko Kesehatan (Machine Learning)"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/umn_blue"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputAge"
+        android:hint="Masukkan Usia"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputBP"
+        android:hint="Tekanan Darah"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btnAnalyze"
+        android:text="Analisis ML (Dummy)"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/umn_blue"
+        android:textColor="@color/white"/>
+</LinearLayout>

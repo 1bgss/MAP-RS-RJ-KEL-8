@@ -9,9 +9,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.antrianrumahsakit.ui.RoleSelectionActivity;
 
 public class SplashScreen extends AppCompatActivity {
-
+    //Kode ini digunakan untuk animasi opening saat aplikasi baru dibuka
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,9 @@ public class SplashScreen extends AppCompatActivity {
 
         // Delay 2 detik sebelum pindah ke MainActivity
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+            Intent intent = new Intent(SplashScreen.this, RoleSelectionActivity.class);
             startActivity(intent);
-            finish(); // biar splash tidak bisa di-back
+            finish();
         }, 2000);
     }
 }

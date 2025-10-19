@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RoleSelectionActivity">
+
+    <!-- Logo Rumah Sakit -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_umn_logo"
+        app:tint="@color/umn_blue" />
+
+    <!-- Judul -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:text="Pilih Dashboard Anda"
+        android:textColor="@color/umn_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Tombol Pasien -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPasien"
+        android:text="Dashboard Pasien"
+        style="@style/Widget.AntrianRumahSakit.Button.FilledTonal"
+        android:layout_marginVertical="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_patient"
+        app:iconPadding="8dp"
+        app:iconTint="@color/white" />
+
+    <!-- Tombol Dokter -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDokter"
+        android:text="Dashboard Dokter"
+        style="@style/Widget.AntrianRumahSakit.Button.FilledTonal"
+        android:layout_marginVertical="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_doctor"
+        app:iconPadding="8dp"
+        app:iconTint="@color/white" />
+
+    <!-- Tombol Admin -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdmin"
+        android:text="Dashboard Admin"
+        style="@style/Widget.AntrianRumahSakit.Button.FilledTonal"
+        android:layout_marginVertical="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_admin"
+        app:iconPadding="8dp"
+        app:iconTint="@color/white" />
+
+</LinearLayout>
